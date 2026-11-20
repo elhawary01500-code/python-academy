@@ -1,370 +1,66 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101b35">
-<meta name="description" content="أكاديمية بايثون التعليمية باللغة العربية">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101b35"><meta name="description" content="أكاديمية بايثون التعليمية باللغة العربية">
 <link rel="manifest" href="manifest.webmanifest">
 <title>PYTHON ACADEMY</title>
 <style>
-:root{--navy:#101b35;--panel:#192847;--blue:#4e8cff;--gold:#e9bd62;--muted:#aab6cc;--white:#f6f8fc;--ok:#2ecc71;--bad:#ff6b6b}
-*{box-sizing:border-box}
-body{margin:0;background:#0b1428;color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+:root{--navy:#101b35;--panel:#192847;--blue:#4e8cff;--gold:#e9bd62;--muted:#aab6cc;--white:#f6f8fc}
+*{box-sizing:border-box}body{margin:0;background:#0b1428;color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
 header{padding:24px 18px 18px;background:linear-gradient(140deg,#18294c,#101b35);border-bottom:1px solid #2c3d60}
-.brand{direction:ltr;text-align:center;font-weight:900;letter-spacing:2px;color:var(--gold);font-size:23px}
-.sub{text-align:center;color:var(--muted);font-size:13px;margin-top:7px}
-main{max-width:760px;margin:auto;padding:16px 14px 90px}
-.welcome{background:linear-gradient(135deg,#203a67,#172743);border:1px solid #344c74;border-radius:18px;padding:18px;margin:8px 0 16px}
-h2{font-size:19px;margin:0 0 8px}
-.welcome p,.muted{color:var(--muted);font-size:14px;line-height:1.8;margin:0}
-.progress{height:8px;background:#31415e;border-radius:9px;overflow:hidden;margin-top:13px}
-.bar{height:100%;width:0;background:var(--gold);transition:width .25s}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
-.tab,button{border:0;border-radius:12px;padding:12px;background:#203253;color:white;font-weight:700;font-size:14px;cursor:pointer}
-.tab.active,button.primary{background:var(--blue)}
-button:disabled{opacity:.45;cursor:not-allowed}
+.brand{direction:ltr;text-align:center;font-weight:900;letter-spacing:2px;color:var(--gold);font-size:23px}.sub{text-align:center;color:var(--muted);font-size:13px;margin-top:7px}
+main{max-width:760px;margin:auto;padding:16px 14px 90px}.welcome{background:linear-gradient(135deg,#203a67,#172743);border:1px solid #344c74;border-radius:18px;padding:18px;margin:8px 0 16px}
+h2{font-size:19px;margin:0 0 8px}.welcome p,.muted{color:var(--muted);font-size:14px;line-height:1.8;margin:0}
+.progress{height:8px;background:#31415e;border-radius:9px;overflow:hidden;margin-top:13px}.bar{height:100%;width:0;background:var(--gold);transition:width .2s}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.tab,button{border:0;border-radius:12px;padding:12px;background:#203253;color:white;font-weight:700;font-size:14px}.tab.active,button.primary{background:var(--blue)}
 .card{background:var(--panel);border:1px solid #2a3c5d;border-radius:16px;padding:16px;margin:10px 0}
-.lesson{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.lesson small{display:block;color:var(--muted);margin-top:4px}
-.done-badge{display:inline-block;margin-top:6px;font-size:11px;color:var(--gold);border:1px solid #6d5b38;padding:2px 8px;border-radius:20px}
-.content{line-height:1.9;color:#e4eaf5}
-.code{direction:ltr;text-align:left;background:#091120;color:#a9d6ff;padding:13px;border-radius:10px;white-space:pre-wrap;font-family:monospace;font-size:14px;overflow:auto}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.secondary{background:#2b3d5e}
+.lesson{display:flex;align-items:center;justify-content:space-between;gap:10px}.lesson small{display:block;color:var(--muted);margin-top:4px}
+.tag{font-size:11px;color:var(--gold);border:1px solid #6d5b38;padding:4px 8px;border-radius:20px;white-space:nowrap}
+.content{line-height:1.9;color:#e4eaf5}.code{direction:ltr;text-align:left;background:#091120;color:#a9d6ff;padding:13px;border-radius:10px;white-space:pre-wrap;font-family:monospace;font-size:14px;overflow:auto}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}button{cursor:pointer}.secondary{background:#2b3d5e}
 input,textarea{width:100%;background:#091528;color:white;border:1px solid #3a4d70;border-radius:10px;padding:12px;font:inherit;direction:ltr;text-align:left}
-textarea{min-height:115px;resize:vertical}
-.result{margin-top:10px;background:#0c172a;border-radius:10px;padding:12px;color:#c8d5eb;white-space:pre-wrap;direction:ltr;text-align:left;font-family:monospace}
-.quiz-q{display:block;font-size:16px;margin-bottom:10px;line-height:1.6}
-.quiz button.opt{display:block;width:100%;text-align:right;margin:8px 0;background:#293d60;border:1px solid transparent}
-.quiz button.opt.correct{background:#184734;border-color:var(--ok)}
-.quiz button.opt.wrong{background:#4d2129;border-color:var(--bad)}
-.feedback-box{margin-top:12px;padding:12px;border-radius:10px;background:#101d36;line-height:1.8;font-size:14px}
-.hide{display:none}
+textarea{min-height:115px;resize:vertical}.result{margin-top:10px;background:#0c172a;border-radius:10px;padding:12px;color:#c8d5eb;white-space:pre-wrap;direction:ltr;text-align:left;font-family:monospace}
+.quiz button{display:block;width:100%;text-align:right;margin:8px 0;background:#293d60}.hide{display:none}
 footer{position:fixed;bottom:0;left:0;right:0;background:#101b35ee;border-top:1px solid #2b3d5e;padding:10px;text-align:center;color:var(--muted);font-size:12px}
-</style>
-</head>
+</style></head>
 <body>
-<header>
-  <div class="brand">PYTHON ACADEMY</div>
-  <div class="sub">اتعلّم البرمجة من الصفر — خطوة بخطوة</div>
-</header>
-
+<header><div class="brand">PYTHON ACADEMY</div><div class="sub">اتعلّم البرمجة من الصفر — خطوة بخطوة</div></header>
 <main>
-  <section class="welcome">
-    <h2>أهلاً بك في أكاديميتك 👋</h2>
-    <p>هنمشي بهدوء. نفهم فكرة واحدة، نكررها بأمثلة مختلفة، وبعدها ننتقل للي بعدها. مفيش استعجال.</p>
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <p id="progressText" style="margin-top:8px">تقدمك: 0 من 5 دروس</p>
-  </section>
-
-  <div class="tabs">
-    <button class="tab active" data-tab="lessons">الدروس</button>
-    <button class="tab" data-tab="lab">معمل التدريب</button>
-    <button class="tab" data-tab="review">المراجعة</button>
-  </div>
-
-  <section id="lessons">
-    <div class="card">
-      <h2>منهج التأسيس</h2>
-      <p class="muted">ابدأ بالدرس الأول، ولا تنتقل إلا لما تكون فاهم.</p>
-    </div>
-    <div id="lessonList"></div>
-    <div id="lessonView" class="card hide"></div>
-  </section>
-
-  <section id="lab" class="hide">
-    <div class="card">
-      <h2>معمل كتابة الأكواد</h2>
-      <p class="muted">اكتب كود Python هنا. المعمل الحالي يتيح كتابة الكود ونسخه؛ تشغيل Python الحقيقي يحتاج محرك تشغيل/خدمة منفصلة.</p>
-      <textarea id="code" spellcheck="false">print("Hello, Python!")</textarea>
-      <div class="actions">
-        <button class="primary" id="copy">نسخ الكود</button>
-        <button class="secondary" id="reset">إعادة المثال</button>
-      </div>
-      <div class="result" id="labResult">نتيجة التدريب ستظهر هنا بعد توصيل محرك Python في إصدار لاحق.</div>
-    </div>
-  </section>
-
-  <section id="review" class="hide">
-    <div class="card">
-      <h2>اختبر فهمك</h2>
-      <p class="muted" id="quizCounter">السؤال 1 من 5</p>
-      <div id="quiz" class="quiz" style="margin-top:12px"></div>
-      <div id="quizFeedback" class="feedback-box hide"></div>
-      <div class="actions">
-        <button class="primary hide" id="nextQ">السؤال التالي</button>
-        <button class="secondary hide" id="restartQ">إعادة الاختبار</button>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>نسختك التعليمية — تقدمك محفوظ على هذا الجهاز</footer>
-
+<section class="welcome"><h2>أهلاً بك في أكاديميتك 👋</h2><p>هنمشي بهدوء. نفهم فكرة واحدة، نكررها بأمثلة مختلفة، وبعدها ننتقل للي بعدها. مفيش استعجال.</p><div class="progress"><div class="bar" id="bar"></div></div><p id="progressText" style="margin-top:8px">تقدمك: 0 من 5 دروس</p></section>
+<div class="tabs"><button class="tab active" data-tab="lessons">الدروس</button><button class="tab" data-tab="lab">معمل التدريب</button><button class="tab" data-tab="review">المراجعة</button></div>
+<section id="lessons">
+<div class="card"><h2>منهج التأسيس</h2><p class="muted">ابدأ بالدرس الأول، ولا تنتقل إلا لما تكون فاهم.</p></div>
+<div id="lessonList"></div><div id="lessonView" class="card hide"></div>
+</section>
+<section id="lab" class="hide">
+<div class="card"><h2>معمل كتابة الأكواد</h2><p class="muted">اكتب كود Python هنا. المعمل الحالي يتيح كتابة الكود ونسخه؛ تشغيل Python الحقيقي يحتاج محرك تشغيل/خدمة منفصلة.</p>
+<textarea id="code" spellcheck="false">print("Hello, Python!")</textarea><div class="actions"><button class="primary" id="copy">نسخ الكود</button><button class="secondary" id="reset">إعادة المثال</button></div><div class="result" id="labResult">نتيجة التدريب ستظهر هنا بعد توصيل محرك Python في إصدار لاحق.</div></div>
+</section>
+<section id="review" class="hide">
+<div class="card"><h2>اختبر فهمك</h2><p class="muted">سؤال واحد في كل مرة.</p><div id="quiz" class="quiz"></div><div id="quizFeedback" class="muted"></div></div>
+</section>
+</main><footer>نسختك التعليمية — تقدمك محفوظ على هذا الجهاز</footer>
 <script>
-const lessons = [
-  {
-    title: "يعني إيه برمجة؟",
-    desc: "البرمجة هي إنك تكتب تعليمات للكمبيوتر عشان ينفّذ مهمة محددة.",
-    body: "تخيّل إنك بتدي ماكينة في المصنع تعليمات مرتبة: اعمل كذا، وبعده كذا. الكمبيوتر بيحتاج تعليمات واضحة بنفس الفكرة. Python هي اللغة اللي هنتعلم نكتب بيها التعليمات دي.",
-    code: "# أول برنامج في بايثون\nprint('Hello')"
-  },
-  {
-    title: "أمر print()",
-    desc: "لعرض معلومة أو رسالة على الشاشة.",
-    body: "print معناها اطبع أو اعرض. أي كلام بين علامتي تنصيص يظهر كنص. جرّب تقرأ المثال كأنك بتقول للكمبيوتر: اعرض كلمة أهلاً.",
-    code: "print('أهلاً بيك')"
-  },
-  {
-    title: "النصوص والأرقام",
-    desc: "النص بين علامات تنصيص، والرقم يمكن كتابته بدونها.",
-    body: "5 + 7 عملية جمع وناتجها 12. لكن '5' + '7' نصّان، وفي Python يتم دمجهما ليصبح الناتج 57. الفرق هو علامات التنصيص.",
-    code: "print(5 + 7)   # 12\nprint('5' + '7') # 57"
-  },
-  {
-    title: "المتغيرات",
-    desc: "مكان بنخزن فيه قيمة ونستخدمها باسم.",
-    body: "اعتبر المتغير علبة عليها اسم. نحط فيها قيمة، وبعد كده نقدر نستخدم الاسم للوصول للقيمة. لو خزّنا قيمة جديدة في نفس المتغير، القيمة الجديدة تحل محل القديمة.",
-    code: "name = 'Ahmed'\nsalary = 6000\nprint(name)\nprint(salary)"
-  },
-  {
-    title: "استقبال البيانات input()",
-    desc: "نستقبل إجابة من المستخدم ونخزنها.",
-    body: "input() بتوقف البرنامج وتنتظر المستخدم يكتب إجابة. نقدر نخزن الإجابة في متغير ثم نعرضها باستخدام print().",
-    code: "name = input('What is your name? ')\nprint(name)"
-  }
+const lessons=[
+{title:"يعني إيه برمجة؟",desc:"البرمجة هي إنك تكتب تعليمات للكمبيوتر عشان ينفّذ مهمة محددة.",body:"تخيّل إنك بتدي ماكينة في المصنع تعليمات مرتبة: اعمل كذا، وبعده كذا. الكمبيوتر بيحتاج تعليمات واضحة بنفس الفكرة. Python هي اللغة اللي هنتعلم نكتب بيها التعليمات دي.",code:"# أول برنامج في بايثون\nprint('Hello')"},
+{title:"أمر print()",desc:"لعرض معلومة أو رسالة على الشاشة.",body:"print معناها اطبع أو اعرض. أي كلام بين علامتي تنصيص يظهر كنص. جرّب تقرأ المثال كأنك بتقول للكمبيوتر: اعرض كلمة أهلاً.",code:"print('أهلاً بيك')"},
+{title:"النصوص والأرقام",desc:"النص بين علامات تنصيص، والرقم يمكن كتابته بدونها.",body:"5 + 7 عملية جمع وناتجها 12. لكن '5' + '7' نصّان، وفي Python يتم دمجهما ليصبح الناتج 57. الفرق هو علامات التنصيص.",code:"print(5 + 7)   # 12\nprint('5' + '7') # 57"},
+{title:"المتغيرات",desc:"مكان بنخزن فيه قيمة ونستخدمها باسم.",body:"اعتبر المتغير علبة عليها اسم. نحط فيها قيمة، وبعد كده نقدر نستخدم الاسم للوصول للقيمة. لو خزّنا قيمة جديدة في نفس المتغير، القيمة الجديدة تحل محل القديمة.",code:"name = 'Ahmed'\nsalary = 6000\nprint(name)\nprint(salary)"},
+{title:"استقبال البيانات input()",desc:"نستقبل إجابة من المستخدم ونخزنها.",body:"input() بتوقف البرنامج وتنتظر المستخدم يكتب إجابة. نقدر نخزن الإجابة في متغير ثم نعرضها باستخدام print().",code:"name = input('What is your name? ')\nprint(name)"}
 ];
-
-let done = JSON.parse(localStorage.getItem('pyacademy_done') || '[]');
-let current = 0;
-
-function progress() {
-  document.getElementById('bar').style.width = (done.length / lessons.length * 100) + '%';
-  document.getElementById('progressText').textContent = `تقدمك: ${done.length} من ${lessons.length} دروس`;
-}
-
-function renderLessons() {
-  document.getElementById('lessonList').innerHTML = lessons.map((l, i) => `
-    <div class="card lesson">
-      <div>
-        <b>${i + 1}. ${l.title}</b>
-        <small>${l.desc}</small>
-        ${done.includes(i) ? '<span class="done-badge">مكتمل ✓</span>' : ''}
-      </div>
-      <button class="secondary" onclick="openLesson(${i})">${done.includes(i) ? 'مراجعة' : 'ابدأ'}</button>
-    </div>
-  `).join('');
-}
-
-function openLesson(i) {
-  current = i;
-  const l = lessons[i];
-  const v = document.getElementById('lessonView');
-  v.classList.remove('hide');
-  v.innerHTML = `
-    <h2>${i + 1}. ${l.title}</h2>
-    <p class="content">${l.body}</p>
-    <div class="code">${l.code.replaceAll('&', '&amp;').replaceAll('<', '&lt;')}</div>
-    <div class="actions">
-      <button class="primary" onclick="markDone(${i})">فهمت الدرس</button>
-      <button class="secondary" onclick="openLesson(${Math.max(0, i - 1)})" ${i === 0 ? 'disabled' : ''}>السابق</button>
-      ${i < lessons.length - 1 ? `<button class="secondary" onclick="openLesson(${i + 1})">التالي</button>` : ''}
-    </div>
-  `;
-  v.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function markDone(i) {
-  if (!done.includes(i)) {
-    done.push(i);
-    localStorage.setItem('pyacademy_done', JSON.stringify(done));
-  }
-  progress();
-  renderLessons();
-  const v = document.getElementById('lessonView');
-  if (!v.querySelector('.saved-msg')) {
-    v.insertAdjacentHTML('beforeend', '<p class="saved-msg" style="color:#e9bd62;margin-top:10px">تم تسجيل إنجازك على هذا الجهاز ✓</p>');
-  }
-}
-
-document.querySelectorAll('.tab').forEach(b => {
-  b.onclick = () => {
-    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    ['lessons', 'lab', 'review'].forEach(id => {
-      document.getElementById(id).classList.toggle('hide', id !== b.dataset.tab);
-    });
-  };
-});
-
-document.getElementById('copy').onclick = async () => {
-  try {
-    await navigator.clipboard.writeText(document.getElementById('code').value);
-    document.getElementById('labResult').textContent = 'تم نسخ الكود.';
-  } catch (e) {
-    document.getElementById('labResult').textContent = 'حدد الكود وانسخه يدويًا.';
-  }
-};
-
-document.getElementById('reset').onclick = () => {
-  document.getElementById('code').value = 'print("Hello, Python!")';
-  document.getElementById('labResult').textContent = 'تمت إعادة المثال الافتراضي.';
-};
-
-const questions = [
-  {
-    q: "ما وظيفة print()؟",
-    a: ["استقبال البيانات", "عرض شيء على الشاشة", "حفظ ملف"],
-    c: 1,
-    e: "print() تعرض النص أو القيمة على الشاشة."
-  },
-  {
-    q: "أيّهما نص؟",
-    a: ["25", "'25'", "25 + 1"],
-    c: 1,
-    e: "وجود علامات التنصيص يجعل 25 نصًا."
-  },
-  {
-    q: "ماذا يحدث عند تغيير قيمة متغير؟",
-    a: ["تُستبدل بالقيمة الجديدة", "يتوقف Python", "تُحذف اللغة"],
-    c: 0,
-    e: "آخر قيمة تسندها للمتغير هي القيمة الحالية."
-  },
-  {
-    q: "ما ناتج '5' + '7' في بايثون؟",
-    a: ["12", "'57'", "خطأ برمجي"],
-    c: 1,
-    e: "لأن '5' و '7' نصوص، يتم دمجهما ليصبحا '57'."
-  },
-  {
-    q: "ما وظيفة input()؟",
-    a: ["طباعة مخرجات ملونة", "استقبال إدخال من المستخدم", "إنهاء البرنامج"],
-    c: 1,
-    e: "input() تنتظر المستخدم يكتب قيمة ويمكن تخزينها في متغير."
-  }
-];
-
-let qi = 0;
-let score = 0;
-let answered = false;
-
-function showQ() {
-  answered = false;
-  const q = questions[qi];
-  document.getElementById('quizCounter').textContent = `السؤال ${qi + 1} من ${questions.length}`;
-  document.getElementById('quiz').innerHTML =
-    `<b class="quiz-q">${q.q}</b>` +
-    q.a.map((ans, idx) => `<button class="opt" id="opt-${idx}" onclick="answer(${idx})">${ans}</button>`).join('');
-  const fb = document.getElementById('quizFeedback');
-  fb.classList.add('hide');
-  fb.textContent = '';
-  document.getElementById('nextQ').classList.add('hide');
-  document.getElementById('restartQ').classList.add('hide');
-}
-
-function answer(i) {
-  if (answered) return;
-  answered = true;
-  const q = questions[qi];
-  const fb = document.getElementById('quizFeedback');
-  fb.classList.remove('hide');
-
-  document.querySelectorAll('.quiz .opt').forEach(btn => btn.disabled = true);
-  document.getElementById(`opt-${q.c}`).classList.add('correct');
-
-  if (i === q.c) {
-    score++;
-    fb.innerHTML = `<span style="color:var(--ok);font-weight:700">إجابة صحيحة!</span> ${q.e}`;
-  } else {
-    document.getElementById(`opt-${i}`).classList.add('wrong');
-    fb.innerHTML = `<span style="color:var(--bad);font-weight:700">مش دي الإجابة.</span> ${q.e}`;
-  }
-
-  if (qi < questions.length - 1) {
-    document.getElementById('nextQ').classList.remove('hide');
-  } else {
-    fb.innerHTML += `<br><b style="color:var(--gold)">نتيجتك النهائية: ${score} من ${questions.length}</b>`;
-    document.getElementById('restartQ').classList.remove('hide');
-  }
-}
-
-document.getElementById('nextQ').onclick = () => {
-  if (qi < questions.length - 1) {
-    qi++;
-    showQ();
-  }
-};
-
-document.getElementById('restartQ').onclick = () => {
-  qi = 0;
-  score = 0;
-  showQ();
-};
-
-renderLessons();
-progress();
-showQ();
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
-</script>
-</body>
-</html>
-{
-  "name": "PYTHON ACADEMY",
-  "short_name": "Python Academy",
-  "description": "أكاديمية بايثون التعليمية باللغة العربية للمبتدئين",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "portrait",
-  "lang": "ar",
-  "dir": "rtl",
-  "background_color": "#0b1428",
-  "theme_color": "#101b35",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%23101b35'/%3E%3Ctext x='96' y='114' text-anchor='middle' font-family='Arial,sans-serif' font-size='64' font-weight='bold' fill='%23e9bd62'%3EPY%3C/text%3E%3C/svg%3E",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%23101b35'/%3E%3Ctext x='256' y='300' text-anchor='middle' font-family='Arial,sans-serif' font-size='170' font-weight='bold' fill='%23e9bd62'%3EPY%3C/text%3E%3C/svg%3E",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ]
-}
-{
-  "name": "PYTHON ACADEMY",
-  "short_name": "Python Academy",
-  "description": "أكاديمية بايثون التعليمية باللغة العربية للمبتدئين",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "portrait",
-  "lang": "ar",
-  "dir": "rtl",
-  "background_color": "#0b1428",
-  "theme_color": "#101b35",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%23101b35'/%3E%3Ctext x='96' y='114' text-anchor='middle' font-family='Arial,sans-serif' font-size='64' font-weight='bold' fill='%23e9bd62'%3EPY%3C/text%3E%3C/svg%3E",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%23101b35'/%3E%3Ctext x='256' y='300' text-anchor='middle' font-family='Arial,sans-serif' font-size='170' font-weight='bold' fill='%23e9bd62'%3EPY%3C/text%3E%3C/svg%3E",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ]
-}
+let done=JSON.parse(localStorage.getItem('pyacademy_done')||'[]');
+let current=0;
+function progress(){document.getElementById('bar').style.width=(done.length/lessons.length*100)+'%';document.getElementById('progressText').textContent=`تقدمك: ${done.length} من ${lessons.length} دروس`}
+function renderLessons(){document.getElementById('lessonList').innerHTML=lessons.map((l,i)=>`<div class="card lesson"><div><b>${i+1}. ${l.title}</b><small>${l.desc}</small></div><button class="secondary" onclick="openLesson(${i})">${done.includes(i)?'مراجعة':'ابدأ'}</button></div>`).join('')}
+function openLesson(i){current=i;let l=lessons[i],v=document.getElementById('lessonView');v.classList.remove('hide');v.innerHTML=`<h2>${i+1}. ${l.title}</h2><p class="content">${l.body}</p><div class="code">${l.code.replaceAll('&','&amp;').replaceAll('<','&lt;')}</div><div class="actions"><button class="primary" onclick="markDone(${i})">فهمت الدرس</button><button class="secondary" onclick="openLesson(${Math.max(0,i-1)})" ${i===0?'disabled':''}>السابق</button>${i<lessons.length-1?`<button class="secondary" onclick="openLesson(${i+1})">التالي</button>`:''}</div>`;v.scrollIntoView({behavior:'smooth',block:'start'})}
+function markDone(i){if(!done.includes(i))done.push(i);localStorage.setItem('pyacademy_done',JSON.stringify(done));progress();renderLessons();document.getElementById('lessonView').insertAdjacentHTML('beforeend','<p style="color:#e9bd62">تم تسجيل إنجازك على هذا الجهاز ✓</p>')}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['lessons','lab','review'].forEach(id=>document.getElementById(id).classList.toggle('hide',id!==b.dataset.tab))});
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('code').value);document.getElementById('labResult').textContent='تم نسخ الكود.'}catch(e){document.getElementById('labResult').textContent='حدد الكود وانسخه يدويًا.'}};
+document.getElementById('reset').onclick=()=>document.getElementById('code').value='print("Hello, Python!")';
+const questions=[{q:"ما وظيفة print()؟",a:["استقبال البيانات","عرض شيء على الشاشة","حفظ ملف"],c:1,e:"print() تعرض النص أو القيمة على الشاشة."},{q:"أيّهما نص؟",a:["25","'25'","25 + 1"],c:1,e:"وجود علامات التنصيص يجعل 25 نصًا."},{q:"ماذا يحدث عند تغيير قيمة متغير؟",a:["تُستبدل بالقيمة الجديدة","يتوقف Python","تُحذف اللغة"],c:0,e:"آخر قيمة تسندها للمتغير هي القيمة الحالية."}];
+let qi=0;function showQ(){let q=questions[qi];document.getElementById('quiz').innerHTML=`<b>${q.q}</b>`+q.a.map((a,i)=>`<button onclick="answer(${i})">${a}</button>`).join('');document.getElementById('quizFeedback').textContent=`السؤال ${qi+1} من ${questions.length}`}
+function answer(i){let q=questions[qi];document.getElementById('quizFeedback').textContent=(i===q.c?'إجابة صحيحة! ':'مش دي الإجابة. ')+q.e+' '+(qi<questions.length-1?'اضغط على إجابة للانتقال للسؤال التالي.':'انتهت المراجعة.');if(qi<questions.length-1){qi++;setTimeout(showQ,1700)}else{qi=0}}
+renderLessons();progress();showQ();
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
